@@ -4,8 +4,15 @@ use Ark;
 use_model 'Jobeet::Models';
 our $VERSION = '0.01';
 
-__PACKAGE__->meta->make_immutable;
+sub end :Private {
+    my ($self, $c) = @_;
 
+    unless ($c->res->body or $c->res->status =~ /^3\d\d/) {
+        $c->forward( $c->view('MT') );
+    }
+}
+
+__PACKAGE__->meta->make_immutable;
 
 __END__
 
