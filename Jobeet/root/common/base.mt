@@ -1,4 +1,4 @@
-CTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Jobeet - Your best job board</title>
@@ -60,4 +60,3 @@ CTYPE html>
     </div>
   </body>
 </html>
-

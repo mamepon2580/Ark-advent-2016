@@ -41,4 +41,4 @@ if ($gd->check_version) {
         $gd->upgrade_database;
         say 'done migrate';
     }
-}   
+}

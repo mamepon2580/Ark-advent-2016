@@ -24,22 +24,6 @@ sub update {
     $self->next::method(@_);
 }
 
-
-sub inflate_json_column {
-    my $pkg = shift;
-    my @columns = @_;
-
-    for my $column (@columns) {
-        $pkg->inflate_column(
-            $column,
-            {
-                inflate => sub { my $p = shift; $p && from_json($p); },
-                deflate => sub { my $p = shift; $p && to_json($p); },
-            }
-        );
-    }
-}
-
 __PACKAGE__->load_components(qw/InflateColumn::DateTime Core/);
 
 1;

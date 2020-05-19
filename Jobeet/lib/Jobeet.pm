@@ -1,16 +1,9 @@
 package Jobeet;
 use Ark;
+use Data::Page::Navigation;
 
 use_model 'Jobeet::Models';
 our $VERSION = '0.01';
-
-sub end :Private {
-    my ($self, $c) = @_;
-
-    unless ($c->res->body or $c->res->status =~ /^3\d\d/) {
-        $c->forward( $c->view('MT') );
-    }
-}
 
 __PACKAGE__->meta->make_immutable;
 

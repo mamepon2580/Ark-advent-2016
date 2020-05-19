@@ -13,13 +13,6 @@ register Schema => sub {
     Jobeet::Schema->connect(@$conf);
 };
 
-for my $table (qw/Job Category CategoryAffiliate Affiliate/) {
-    register "Schema::$table" => sub {
-        my $self = shift;
-        $self->get('Schema')->resultset($table);
-    };
-}
-
 autoloader qr/^Schema::/ => sub {
     my ($self, $name) = @_;
 
